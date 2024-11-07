@@ -33,7 +33,6 @@ services:
 
   db_postgres_local:
     image: postgres:latest
-    container_name: postgres_container11
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
