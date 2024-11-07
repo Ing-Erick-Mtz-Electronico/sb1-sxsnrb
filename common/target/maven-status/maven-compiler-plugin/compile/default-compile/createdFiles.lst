@@ -1,0 +1,4 @@
+com/example/common/entity/Order.class
+com/example/common/entity/User.class
+com/example/common/entity/Product.class
+com/example/common/entity/OrderItem.class

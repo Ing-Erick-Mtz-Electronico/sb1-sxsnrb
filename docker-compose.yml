@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  spring_boot_api_user:
+    build:
+      context: .
+      dockerfile: user-service/Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db_postgres_local
+    restart: on-failure
+
+  spring_boot_api_product:
+    build:
+      context: .
+      dockerfile: product-service/Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db_postgres_local
+    restart: on-failure
+
+  spring_boot_api_order:
+    build:
+      context: .
+      dockerfile: order-service/Dockerfile
+    ports:
+      - "8083:8083"
+    depends_on:
+      - db_postgres_local
+    restart: on-failure
+
+  db_postgres_local:
+    image: postgres:latest
+    container_name: postgres_container11
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: microservices_demo
+    ports:
+      - "5432:5432"
